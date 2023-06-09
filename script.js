@@ -19,7 +19,7 @@ function update(){
         minutes = formatZeroes(minutes);
         seconds = formatZeroes(seconds);
 
-        return `${hours}:${minutes}:${seconds} ${amOrPm}`;
+        return `${hours}:${minutes}:${seconds} ${amOrPm} (PHT)`;
     }
 
     function formatZeroes(time){
@@ -28,4 +28,17 @@ function update(){
     }
 }
 
+const navLinks = document.querySelectorAll('.nav-container a');
 
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        targetElement.scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    
